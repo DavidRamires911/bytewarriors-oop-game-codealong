@@ -13,6 +13,7 @@ class Game {
         //create new obstacles
         setInterval( () => {
             const myObstacle = new Obstacle();
+            myObstacle.positionX= Math.random() * (100 - myObstacle.width); ///////random obstacle fall location
             this.obstaclesArr.push(myObstacle);
         }, 2000);
 
@@ -74,7 +75,7 @@ class Obstacle {
     constructor(){
         this.positionX = 50;
         this.positionY = 100;
-        this.width = 20;
+        this.width = 5;
         this.height = 10;
         this.obstacleElm = null; //will store a dom element
 
@@ -97,6 +98,7 @@ class Obstacle {
     moveDown(){
         this.positionY--;
         this.obstacleElm.style.bottom = this.positionY + "vh";
+        
     }
 }
 
